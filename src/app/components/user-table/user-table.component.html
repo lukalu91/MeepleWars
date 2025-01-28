@@ -1,36 +1,16 @@
 <div class="example-container mat-elevation-z8">
   <h1>Giocatori</h1>
   
-  <mat-table #table [dataSource]="dataSource">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="cognome">
-      <mat-header-cell *matHeaderCellDef> Cognome </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.cognome}} </mat-cell>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="motto">
-      <mat-header-cell *matHeaderCellDef> Motto </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.motto}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  <div class="card-list">
+    <div *ngFor="let element of dataSource" class="card">
+      <div class="card-header">
+        <img [src]="element.avatar" alt="Avatar" class="avatar">
+      </div>
+      <div class="card-body">
+        <p><strong>Nome:</strong> {{element.nome}}</p>
+        <p><strong>Cognome:</strong> {{element.cognome}}</p>
+        <p><strong>Motto:</strong> {{element.motto}}</p>
+      </div>
+    </div>
+  </div>
 </div>

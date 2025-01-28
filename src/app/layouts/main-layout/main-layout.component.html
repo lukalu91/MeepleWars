@@ -1,5 +1,24 @@
 <div class="layout">
-  <button (click)="toggleAside()">Toggle Aside</button>
+  <div class="toolbar" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="toolbar-left">
+      <button class="options-button" (click)="toggleAside()">Opzioni</button>
+    </div>
+    <div class="toolbar-center">
+      <h1><span class="title">MeepleWars</span></h1>
+    </div>
+    <div class="toolbar-right">
+      <div class="login-container" *ngIf="!isLoggedIn">
+        <button (click)="login()">Login</button>
+      </div>
+      <div class="user-menu" *ngIf="isLoggedIn">
+        <button (click)="toggleUserMenu()">👤</button>
+        <div class="user-dropdown" *ngIf="isUserMenuOpen">
+          <button (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <aside *ngIf="isAsideOpen()">
     <ul>
       <li><a routerLink="/dashboard">Dashboard</a></li>
@@ -12,6 +31,6 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 My Application</p>
+    <p>&copy; 2025 MeepleWars</p>
   </footer>
 </div>

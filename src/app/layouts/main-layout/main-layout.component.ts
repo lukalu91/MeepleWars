@@ -10,8 +10,24 @@ import { CommonModule } from '@angular/common';
 })
 export class MainLayoutComponent {
   isAsideOpen: WritableSignal<boolean> = signal(false);
+  isLoggedIn: WritableSignal<boolean> = signal(false);
+  isUserMenuOpen: WritableSignal<boolean> = signal(false);
 
   toggleAside() {
     this.isAsideOpen.set(!this.isAsideOpen());
   }
+
+  login() {
+    this.isLoggedIn.set(true);
+  }
+
+  logout() {
+    this.isLoggedIn.set(false);
+    this.isUserMenuOpen.set(false);
+  }
+
+  toggleUserMenu() {
+    this.isUserMenuOpen.set(!this.isUserMenuOpen());
+  }
+
 }

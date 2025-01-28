@@ -1,0 +1,101 @@
+/* Stile generale per il sito */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Toolbar in alto */
+  .toolbar {
+    background-color: #ffcc00;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .toolbar a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+  }
+  
+  .toolbar a:hover {
+    color: #ff6600;
+  }
+  
+  /* Aside */
+  aside {
+    background-color: #ffebcd;
+    padding: 20px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #ffcc00;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer p {
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Stile per mat-table */
+  .cartoon-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .cartoon-table .mat-header-row {
+    background-color: #ffebcd;
+  }
+  
+  .cartoon-table .mat-row:nth-child(even) {
+    background-color: #fffacd;
+  }
+  
+  .cartoon-table .mat-cell, .cartoon-table .mat-header-cell {
+    border: 2px solid #ffcc00;
+    padding: 10px;
+  }
+  
+  .cartoon-table .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  /* Accessibilità */
+  a:focus, button:focus, input:focus {
+    outline: 2px dashed #ff6600;
+    outline-offset: 4px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none;
+      transition: none;
+    }
+  }
+
+  /* Contenitore principale */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
