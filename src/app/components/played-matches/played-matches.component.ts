@@ -6,9 +6,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatchsService } from '../../services/matchs.service';
 
-
-export interface Partita {
+export interface Match {
   id: number;
   gioco: string;
   data: string;
@@ -16,7 +16,7 @@ export interface Partita {
   classifica: string;
 }
 
-const ELEMENT_DATA: Partita[] = [
+const ELEMENT_DATA: Match[] = [
   {id: 1, gioco:"Hegemony", data:"", partecipanti:"", classifica:""},
 ];
 
@@ -34,5 +34,12 @@ const ELEMENT_DATA: Partita[] = [
 })
 export class PlayedMatchesComponent {
   displayedColumns = ['id', 'gioco', 'data', 'partecipanti', 'classifica'];
-  dataSource = ELEMENT_DATA;
-}
+  dataSource = new MatTableDataSource<Match>();;
+
+  constructor(private matchsService: MatchsService) { }
+
+  ngOnInit() {
+    this.matchsService.getMatchs().subscribe(data => {
+      this.dataSource.data = data;
+    });
+  }}

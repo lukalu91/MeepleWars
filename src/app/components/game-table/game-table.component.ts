@@ -6,16 +6,19 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { GamesService } from '../../services/games.service';
 
-export interface Gioco {
+
+export interface Game {
   id: number;
   titolo: string;
   tipologia: string;
 }
 
-const ELEMENT_DATA: Gioco[] = [
+const ELEMENT_DATA: Game[] = [
   {id: 1, titolo:"Hegemony", tipologia:"Gestionale"},
 ];
+
 @Component({
   selector: 'app-game-table',
   imports: [
@@ -31,5 +34,13 @@ const ELEMENT_DATA: Gioco[] = [
 })
 export class GameTableComponent {
   displayedColumns = ['id', 'titolo', 'tipologia'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource<Game>();;
+
+  constructor(private gamesService: GamesService) { }
+
+  ngOnInit() {
+    this.gamesService.getGames().subscribe(data => {
+      this.dataSource.data = data;
+    });
+  }
 }
