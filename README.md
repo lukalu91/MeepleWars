@@ -63,3 +63,9 @@ For more information on using the Angular CLI, including detailed command refere
 
 ng build --configuration production
 
+
+# Charts
+
+https://github.com/valor-software/ng2-charts#readme
+https://valor-software.com/ng2-charts/radar
+
